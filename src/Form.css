@@ -1,0 +1,10 @@
+.myForm {
+    width: 500px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-error {
+    color: red;
+    text-align: left
+}
