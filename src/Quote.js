@@ -32,6 +32,8 @@ class Quote extends Component {
                 return (
                     <div className="quote">
                         <blockquote>
+                        <h5><span class="glyphicon glyphicon-tag"></span> : {q.cat}</h5>
+
                         {q.quote}
                             <br/><span className="author"><i>{q.author}</i></span>
                         </blockquote>
