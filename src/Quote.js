@@ -44,7 +44,6 @@ class Quote extends Component {
 
         return (
             <div>
-                <Header />
                 {this.state.quote.length ===0?  loading : quotes}
             </div>
         );

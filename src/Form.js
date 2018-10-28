@@ -104,13 +104,9 @@ class Form extends Component {
         )
 
         return (
-            <div>
-                <Header />
-                <div className="myForm">
-                    {!this.state.isFormSuccess ? form : <h3>Form Submission Successful</h3>}
-                </div>
+            <div className="myForm">
+                {!this.state.isFormSuccess ? form : <h3>Form Submission Successful</h3>}
             </div>
-
         );
     }
 }
