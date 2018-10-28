@@ -11,6 +11,8 @@ const Header = (porps) => {
                     </div>
                     <ul className="nav navbar-nav">
                         <li><NavLink to="/"><span class="glyphicon glyphicon-home"></span> Home</NavLink></li>
+                        <li><NavLink to="/Quotes"><span class="glyphicon glyphicon-leaf"></span> Quotes</NavLink></li>
+
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li><NavLink to="/form"><span class="glyphicon glyphicon-user"></span> Register</NavLink></li>
