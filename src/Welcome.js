@@ -1,9 +1,12 @@
 import React from 'react';
-import Header from './Header';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import Toto from './toto';
 
 
 const Welcome = () => {
+
+                     
+
     return (
         <div className="jumbotron jumbotron-fluid">
             <div className="container">
@@ -15,7 +18,10 @@ const Welcome = () => {
                 <p class="lead">
                     <NavLink className="btn btn-success btn-lg" to="/Quotes" >Quotes</NavLink>
                 </p>
+            <Toto />
+
             </div>
+
         </div>
     );
 }
