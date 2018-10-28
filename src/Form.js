@@ -1,40 +1,42 @@
-import React,{ Component}  from  'react';
+import React, { Component } from 'react';
 import './Form.css';
 import Email from './Form/Email';
 import Password from './Form/Password';
 import PasswordConfirm from './Form/PasswordConfrim';
+import Header from './Header';
 
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email : "",
-            emailerror :"",
-            password:"",
-            passworderror:"",
-            passwordconfirm:"",
-            passwordconfirmerror:"",
+            email: "",
+            emailerror: "",
+            password: "",
+            passworderror: "",
+            passwordconfirm: "",
+            passwordconfirmerror: "",
+            isFormSuccess: false
         }
     }
 
     emailInputHandler = (e) => {
         this.setState({
-            email : e.target.value,
-            emailerror : ""
+            email: e.target.value,
+            emailerror: ""
         })
     }
 
     passwordInputHandler = (e) => {
         this.setState({
-            password : e.target.value,
-            passworderror : ""
+            password: e.target.value,
+            passworderror: ""
         })
     }
 
     passwordConfirmInputHandler = (e) => {
         this.setState({
-            passwordconfirm : e.target.value,
-            passwordconfirmerror : ""
+            passwordconfirm: e.target.value,
+            passwordconfirmerror: ""
         })
     }
 
@@ -43,29 +45,32 @@ class Form extends Component {
 
         let isValid = true;
         //validation
-        if(!this.validateEmail(this.state.email)){
+        if (!this.validateEmail(this.state.email)) {
             this.setState({
-                emailerror : "email is incorrect"
+                emailerror: "email is incorrect"
             })
             isValid = false;
         }
 
-        if(this.state.password.length < 6) {
+        if (this.state.password.length < 6) {
             this.setState({
-                passworderror : "Password must be at least 6 character long"
+                passworderror: "Password must be at least 6 character long"
             })
             isValid = false
         }
 
-        if(this.state.password && this.state.password !== this.state.passwordconfirm){
+        if (this.state.password && this.state.password !== this.state.passwordconfirm) {
             this.setState({
                 passwordconfirmerror: "Password not match"
             })
-            isValid =false
+            isValid = false
         }
 
-        if(isValid){
-             console.log(this.state)
+        if (isValid) {
+            console.log(this.state)
+            this.setState({
+                isFormSuccess: true
+            })
         }
     }
 
@@ -75,25 +80,37 @@ class Form extends Component {
     }
 
     render() {
-        return (
-            <div className="myForm">
-            <form onSubmit={this.formHandler} >
-               <Email 
-                    email={this.state.email} 
-                    emailerror={this.state.emailerror} 
-                    emailInputHandler={this.emailInputHandler}/>
-               <Password 
-                    password={this.state.password} 
-                    passworderror={this.state.passworderror}
-                    passwordInputHandler={this.passwordInputHandler} />
-               <PasswordConfirm 
-                    passwordconfirm={this.state.passwordconfirm} 
-                    passwordconfirmerror={this.state.passwordconfirmerror}
-                    passwordConfirmInputHandler={this.passwordConfirmInputHandler} />
 
-                <button className="btn btn-primary">Submit</button>
-            </form>
-            </div>  
+        const form = (
+            <div>
+
+                <form onSubmit={this.formHandler} >
+                    <Email
+                        email={this.state.email}
+                        emailerror={this.state.emailerror}
+                        emailInputHandler={this.emailInputHandler} />
+                    <Password
+                        password={this.state.password}
+                        passworderror={this.state.passworderror}
+                        passwordInputHandler={this.passwordInputHandler} />
+                    <PasswordConfirm
+                        passwordconfirm={this.state.passwordconfirm}
+                        passwordconfirmerror={this.state.passwordconfirmerror}
+                        passwordConfirmInputHandler={this.passwordConfirmInputHandler} />
+
+                    <button className="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        )
+
+        return (
+            <div>
+                <Header />
+                <div className="myForm">
+                    {!this.state.isFormSuccess ? form : <h3>Form Submission Successful</h3>}
+                </div>
+            </div>
+
         );
     }
 }

@@ -1,8 +1,11 @@
 .myForm {
-    width: 500px;
-    padding: 20px;
+    width: 350px;
+    padding: 40px 20px;
+    margin-top:20px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #eee;
+    box-shadow: 0 2px 3px #ccc;
 }
 .form-error {
     color: red;
